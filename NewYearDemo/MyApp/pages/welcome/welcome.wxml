@@ -1,0 +1,10 @@
+<!--pages/welcome/welcome.wxml-->
+<view class="contatiner">
+  <image src="/images/sun.png" class="avatar"></image>
+  <l-avatar shape="square" open-data="{{['userAvatarUrl','userNickName']}}" size="100"/>
+  <text class="motto">Happy New Year</text>
+  <text class="motto">新年快乐</text>
+  <view class="button">
+    <text class="t" bindtap="clickMe">2021启程</text>
+  </view>
+</view>

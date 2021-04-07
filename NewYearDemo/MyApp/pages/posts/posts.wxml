@@ -1,0 +1,26 @@
+<!--pages/posts/posts.wxml-->
+<view>
+  <!-- 轮播图、滑块容器组件 -->
+  <swiper indicator-dots="true" autoplay="true" circular="true" interval="3000">
+    <swiper-item>
+      <image src="/images/幻月.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/雪乡.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/雾中城.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <view>
+    <!-- 下方新闻 -->
+    <view>
+      <image></image>
+      <text></text>
+    </view>
+    <text></text>
+    <image></image>
+    <text></text>
+    <text></text>
+  </view>
+</view>
