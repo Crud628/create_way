@@ -1,5 +1,103 @@
 # SAAS IRHM 系统
 
+## 目录说明
+
+> ├── assets             | 资源 
+>
+> ├── build              | webpack编译配置 
+>
+> ├── config             | 全局变量 
+>
+> ├── src               | 源码
+>
+> │  ├── api             | 数据请求 
+>
+> │  ├── assets           | 资源 
+>
+> │  ├── components         | 组件 
+>
+> │  ├── mixins           | mixins 
+>
+> │  ├── filters           | vue filter 
+>
+> │  ├── icons            | 图标
+>
+> │  ├── lang            | 多语言 
+>
+> │  ├── router           | 路由
+>
+> │  ├── store            | 数据 
+>
+> │  ├── styles           | 样式 
+>
+> │  ├── utils            | 工具函数库 
+>
+> │  ├── module-dashboard      | 框架程序 
+>
+> │  │  ├── assets 
+>
+> │  │  ├── components 
+>
+> │  │  ├── pages 
+>
+> │  │  ├── router
+>
+> │  │  └── store 
+>
+> │  ├── module-example       | 示例程序 
+>
+> │  │  ├── assets
+>
+> │  │  ├── components 
+>
+> │  │  ├── pages 
+>
+> │  │  ├── router 
+>
+> │  │  └── store 
+>
+> │  ├── App.vue           | app
+>
+> │  ├── main.js           | 主引导 
+>
+> │  └── errorLog.js        | vue全局错误捕捉 ├── dist              | 编译发布目录 
+>
+> ├── README.md 
+>
+> ├── index.html           | 页面模板 
+>
+> ├── package.json          | npn包配置 
+>
+> ├── static 
+>
+> └── test              | 测试  
+>
+> ├── e2e  
+>
+> └── unit
+
+
+
+> │  ├── module-saas-clients   | saas-clients模块主目录 
+>
+> │  │  ├── assets       | 资源 
+>
+> │  │  ├── components     | 组件 
+>
+> │  │  ├── pages        | 页面 
+>
+> │  │  │  └── index.vue    | 示例 
+>
+> │  │  ├── router       | 路由 
+>
+> │  │  │  └── index.js    | 示例 
+>
+> │  │  └── store        | 数据
+>
+> │  │    └── app.js     | 示例
+
+
+
 ## 运行
 
 ### 1. 安装 nodejs
@@ -47,32 +145,3 @@ module.exports = {
 ```sh
 npm start
 ```
-
-## 资源
-
-- 前端 vue
-  http://git.itcast.cn/development/project-saas-hrm-vue.git
-
-- 后端 java
-  http://git.itcast.cn/course/project-saas-hrm-java-api.git
-
-- 后端 java 配置中心
-  http://git.itcast.cn/development/project-saas-hrm-java-config.git
-
-- UED 产品业务原型
-  http://research.itcast.cn/itcast-frontpage/SaaS-HRM
-
-- API 接口设计与 Mock
-  https://mock.boxuegu.com/project/29/interface/api
-
-- 持续集成 外网域名
-  http://hrm.research.itcast.cn
-
-- 代码质量分析
-  http://sonar.itcast.cn/projects
-
----
-
-@传智研究院-研发部
-
-江苏传智播客教育科技股份有限公司 &nbsp;版权所有 Copyright 2006-2018, All Rights Reserved
