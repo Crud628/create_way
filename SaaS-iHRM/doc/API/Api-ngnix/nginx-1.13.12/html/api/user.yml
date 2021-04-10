@@ -1,0 +1,355 @@
+swagger: "2.0"
+info:
+  description: User
+  version: "1.0.0"
+  title: 用户API
+basePath: /user
+paths: 
+  /user:
+    post:
+      summary: 增加User
+      parameters:
+      - in: body
+        name: body
+        description: User实体
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    get:
+      summary: User全部列表分页
+      parameters:
+        - name: page
+          in: query
+          description: 页码
+          required: true
+          type: integer
+          format: int32
+        - name: size
+          in: query
+          description: 页大小
+          required: true
+          type: integer
+          format: int32
+        - name: hasDept
+          in: query
+          description: 是否分配部门 0未分配，1 已分配
+          required: false
+          type: string
+        - name: departmentId
+          in: query
+          description: 部门id
+          required: false
+          type: string      
+        - name: companyId
+          in: query
+          description: 企业id
+          required: false
+          type: string   
+      responses:
+        200:
+          description: 查询成功
+          schema:
+            $ref: '#/definitions/ApiUserPageResponse'
+  /user/{userId}:
+    get:
+      summary: 根据ID查询user
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/ApiUserResponse'
+    put:
+      summary: 修改User
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: User实体
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      summary: 根据ID删除User
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/ApiResponse'          
+  /user/assignRoles:
+    put:
+      summary: 分配角色
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema: 
+            $ref: '#/definitions/AssignRoles'
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/ApiResponse'   
+  /login:
+    post:
+      summary: 用户登录
+      parameters:
+        - name: mobile
+          in: query
+          required: true
+          type: string
+        - name: password
+          in: query
+          required: true
+          type: string          
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/LoginResponse'       
+  /profile:
+    post:
+      summary: 获取个人信息       
+      responses:
+        200:
+          description: 成功
+          schema:
+            $ref: '#/definitions/ProfileResponse'  
+  /exportPdf/{id}:
+    get:
+      summary: 用户PDF下载
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string      
+      responses:
+        200:
+          description: 成功               
+  /user/upload/{id}:
+    post:
+      summary: 用户头像上传
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+        - name: file
+          in: formData
+          type: file
+          description: 头像图片
+      responses:
+        200:
+          description: 成功   
+          schema:
+            $ref: '#/definitions/ApiUploadResponse'    
+            
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "string"        
+        description: "ID"
+      mobile:
+        type: "string"        
+        description: "手机号码"
+      username:
+        type: "string"        
+        description: "用户名称"
+      password:
+        type: "string"        
+        description: "密码"
+      role:
+        type: "string"        
+        description: ""
+      enableState:
+        type: "string"        
+        description: "启用状态 0是禁用，1是启用"
+      createTime:
+        type: "string"        
+        description: "创建时间"
+      departmentId:
+        type: "string"        
+        description: "部门ID"
+      timeOfEntry:
+        type: "string"        
+        description: "入职时间"
+      formOfEmployment:
+        type: "string"        
+        description: "聘用形式"
+      workNumber:
+        type: "string"        
+        description: "工号"
+      formOfManagement:
+        type: "string"        
+        description: "管理形式"
+      workingCity:
+        type: "string"        
+        description: "工作城市"
+      correctionTime:
+        type: "string"        
+        description: "转正时间"
+      inServiceStatus:
+        type: "string"        
+        description: "在职状态 1.在职  2.离职"
+      companyId:
+        type: "string"        
+        description: "企业ID"
+      companyName:
+        type: "string"        
+        description: ""
+      departmentName:
+        type: "string"        
+        description: ""
+  AssignRoles: 
+    type: "object"
+    properties: 
+      id:
+        type: "string"
+      roleIds:
+        type: "array"
+        items:
+            type: "string"
+  UserList:
+    type: "array"
+    items: 
+      $ref: '#/definitions/User'
+  ApiUploadResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string"
+      data:
+        type: string
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string"
+  ProfileResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string" 
+      data:
+        $ref: '#/definitions/Profile'     
+  Profile: 
+    type: "object"
+    properties:
+      mobile:
+        type: "string" 
+      username:
+        type: "string" 
+      company:
+        type: "string" 
+      roles:
+        type: "object"
+        properties:
+            menus:
+              type: "array"
+              items: 
+                type: "string"
+            points:
+              type: "array"
+              items: 
+                type: "string"            
+            apis:
+              type: "array"
+              items: 
+                type: "string"
+  LoginResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string"    
+      data: 
+        type: "string"
+  ApiUserResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string"
+      data:
+        $ref: '#/definitions/User'
+  ApiUserListResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string"
+      data:
+        $ref: '#/definitions/UserList'
+  ApiUserPageResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      flag:
+        type: "boolean"
+      message:
+        type: "string"
+      data:
+        properties:
+          total:
+            type: "integer"
+            format: "int32"
+          rows:
+            $ref: '#/definitions/UserList'
