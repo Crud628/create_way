@@ -88,10 +88,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="96" />
-    <option name="y" value="32" />
+    <option name="x" value="-94" />
+    <option name="y" value="179" />
     <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="height" value="437" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -191,7 +191,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618037700961</updated>
-      <workItem from="1618037716986" duration="12051000" />
+      <workItem from="1618037716986" duration="12771000" />
     </task>
     <servers />
   </component>
@@ -210,10 +210,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12051000" />
+    <option name="totallyTimeSpent" value="12771000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
