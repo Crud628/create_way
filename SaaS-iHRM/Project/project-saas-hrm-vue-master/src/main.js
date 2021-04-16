@@ -19,6 +19,7 @@ import './mock' // simulation data
 import dashboard from '@/module-dashboard/' // 面板
 import demo from '@/module-demo/' // 面板
 import saasClients from '@/module-saas-clients/' // 企业管理
+import departments from '@/module-departments/' // 部门管理
 
 import tools from './utils/common.js'
 Vue.prototype.$tools = tools
@@ -27,6 +28,7 @@ Vue.use(tools)
 Vue.use(dashboard, store)
 Vue.use(demo, store)
 Vue.use(saasClients,store)
+Vue.use(departments,store)
 
 
 /*

@@ -29,7 +29,6 @@
             </template>
           </el-table-column>
         </el-table>
-         demo页面
       </el-card>
      </div>
   </div>
