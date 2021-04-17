@@ -1,4 +1,4 @@
-import {createAPI, createFormAPI} from '@/utils/request'
+import {createAPI} from '@/utils/request'
 
 //查询部门列表的API
 export const list = data => createAPI('/company/department', 'get', data)

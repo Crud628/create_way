@@ -17,7 +17,7 @@ Mock.mock(/\/frame\/login/, 'post', LoginAPI.login)
 
 //配置模拟数据接口
 //  /company/12
-Mock.mock(/\/company\/+/, 'get', CompanyAPI.sassDetail)//根据id查询
-Mock.mock(/\/company/, 'get', CompanyAPI.list)  //访问企业列表
+//Mock.mock(/\/company\/+/, 'get', CompanyAPI.sassDetail)//根据id查询
+//Mock.mock(/\/company/, 'get', CompanyAPI.list)  //访问企业列表
 
 
