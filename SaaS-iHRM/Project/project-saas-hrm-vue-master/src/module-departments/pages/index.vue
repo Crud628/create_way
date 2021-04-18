@@ -126,7 +126,7 @@ export default {
   methods: {
     //添加部门
     handlAdd(parentId) {
-      this.$refs.addDept.reload;
+      Object.assign(this.$refs.addDept.dept);
       //父页面调用子组件中的内容
       this.$refs.addDept.parentId = parentId;
       this.$refs.addDept.dialogFormVisible = true
