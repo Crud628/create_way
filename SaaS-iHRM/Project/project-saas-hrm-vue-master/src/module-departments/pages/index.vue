@@ -100,31 +100,70 @@
             </div>    
       </el-card>
     </div>
+    <!--:visible.sync 是否显示 -->
+    <!--引入组件-->
+    <component v-bind:is="deptAdd" ref="addDept"></component>
 </div>
 </template>
  
 <!-- 引入组件 -->
 <script>
 //引入api
-import {list} from "@/api/base/dept"
+import {list,saveOrUpdate,find,deleteById} from "@/api/base/dept"
 import commonApi from '@/utils/common'
+import deptAdd from './../components/add'
 export default {
+  //注册组件
+  components:{deptAdd},
   data() {
     return {
+      deptAdd:'deptAdd',
       activeName: 'first', 
       departData:{},
       depts:[]
     }
   },
   methods: {
+    //添加部门
+    handlAdd(parentId) {
+      this.$refs.addDept.reload;
+      //父页面调用子组件中的内容
+      this.$refs.addDept.parentId = parentId;
+      this.$refs.addDept.dialogFormVisible = true
+    },
+    //查看部门
+    handUpdate(id) {
+      //根据id查询部门
+      find({id:id}).then(res => {
+         //数据绑定到dept对象中
+         //调用组件的内容
+         this.$refs.addDept.dept = res.data.data;
+         this.$refs.addDept.dialogFormVisible = true
+      })
+    },
+    //删除部门
+    handleDelete(id) {
+       this.$confirm('是否删除此条记录?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+               deleteById({id:id}).then(res=> {
+                this.$message({
+                  message: res.data.message,
+                  type: res.data.success?'success':'error'
+                });
+                if(res.data.success) {
+                  location.reload();
+                }
+              })
+        })
+    },
     //构造查询方法
     getList() {
       list().then(res => {
        this.departData = res.data.data
-       console.log(res)
-       console.log(res.data.data)
        //将普通的数据转化为父子接口
-       console.log(res.data.data.depts)
        this.depts = commonApi.transformTozTreeFormat(res.data.data.depts);
       })
     }
