@@ -126,7 +126,7 @@ export default {
   methods: {
     //添加部门
     handlAdd(parentId) {
-      Object.assign(this.$refs.addDept.dept);
+      //this.$refs.addDept.dept=[];  // 查看之后，再添加数据不会清空
       //父页面调用子组件中的内容
       this.$refs.addDept.parentId = parentId;
       this.$refs.addDept.dialogFormVisible = true
@@ -135,6 +135,7 @@ export default {
     handUpdate(id) {
       //根据id查询部门
       find({id:id}).then(res => {
+
          //数据绑定到dept对象中
          //调用组件的内容
          this.$refs.addDept.dept = res.data.data;
