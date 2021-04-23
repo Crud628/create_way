@@ -25,8 +25,13 @@ public class TestController {
      */
     @RequestMapping(value = "",method = RequestMethod.GET)
     @ResponseBody
-    private List<Test> testList(){
-        return testService.testList();
+    private ModelAndView testList(){
+        ModelAndView mav = new ModelAndView();
+        List<Test> m = testService.testList();
+        //m.forEach(System.out::println);
+        mav.addObject("list",m);
+        mav.setViewName("test");
+        return mav;
     }
 
     /**
@@ -54,4 +59,7 @@ public class TestController {
         System.out.println(t);
         return testService.testSave(t);
     }
+
+
+
 }

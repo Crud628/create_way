@@ -8,6 +8,17 @@
 <h1>测试</h1>
 
 <div th:text="${hello}">这是显示欢迎信息</div>
-
+<table border="1 solid gary" >
+    <tr>
+       <th>id</th>
+        <th>name</th>
+        <th>pass</th>
+    </tr>
+    <tr th:each="u:${list}">
+        <td >[[${u.id}]]</td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.pass}"></td>
+    </tr>
+</table>
 </body>
 </html>
