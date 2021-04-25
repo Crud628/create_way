@@ -7,28 +7,28 @@ import java.util.function.Consumer;
 /**
  * 
  * @author lan
- * 2021Äê4ÔÂ24ÈÕ
- * TODO list µÄ±éÀú¶Ô±È
+ * 2021å¹´4æœˆ24æ—¥
+ * TODO list çš„éå†å¯¹æ¯”
  */
 public class Test {
 	public static void main(String[] args) {
 		List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8);
 		
-		//Ô­Ê¼
+		//åŸå§‹
 		for(int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
 		
 		System.out.println("-----------------");
 		
-		//JDK 1.5 ÔöÇ¿forÑ­»·
+		//JDK 1.5 å¢å¼ºforå¾ªç¯
 		for (Integer integer : list) {
 			System.out.println(integer);
 		}
 		
 		System.out.println("-----------------");
 		
-		//JDK 1.8ĞÂÔö Consumer<? super T> action
+		//JDK 1.8æ–°å¢ Consumer<? super T> action
 		list.forEach(new Consumer<Integer>() {
 			@Override
 			public void accept(Integer t) {

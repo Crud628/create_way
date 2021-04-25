@@ -2,18 +2,18 @@ package com.lan.functionIntergaceTest;
 
 
 
-//ÉùÃ÷ÊÇÎªÁË·½±ãÔÚ±àÐ´Ê±ÌáÊ¾ÒÔ¼°±àÒëÊ±¿ì½Ý
+//å£°æ˜Žæ˜¯ä¸ºäº†æ–¹ä¾¿åœ¨ç¼–å†™æ—¶æç¤ºä»¥åŠç¼–è¯‘æ—¶å¿«æ·
 @FunctionalInterface
 interface MyInterface{
-	//Î¨Ò»³éÏó·½·¨
+	//å”¯ä¸€æŠ½è±¡æ–¹æ³•
 	void test();
 	
-	//ObjectµÄÔ­Éú·½·¨£¬²»±»ÊÓÎª³éÏó
+	//Objectçš„åŽŸç”Ÿæ–¹æ³•ï¼Œä¸è¢«è§†ä¸ºæŠ½è±¡
 	String toString();
 }
 /**
  * @author lan
- * 2021Äê4ÔÂ25ÈÕ
+ * 2021å¹´4æœˆ25æ—¥
  * TODO  
  */
 public class FunctionTest {
@@ -26,7 +26,7 @@ public class FunctionTest {
 	public static void main(String[] args) {
 		FunctionTest f = new FunctionTest();
 		
-		//´«Í³ÊµÏÖ
+		//ä¼ ç»Ÿå®žçŽ°
 		f.myTest(new MyInterface() {
 			@Override
 			public void test() {
@@ -35,12 +35,12 @@ public class FunctionTest {
 			}
 		});
 		
-		//lambda ÊµÏÖ
+		//lambda å®žçŽ°
 		f.myTest(()->{
 			System.out.println("mytest");
 		});
 		
-		//lambda ÊµÏÖ2
+		//lambda å®žçŽ°2
 		MyInterface myInterface = () ->{
 			System.out.println("hello");
 		};

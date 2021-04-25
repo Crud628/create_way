@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 
 /**
  * @author lan
- * 2021Äê4ÔÂ24ÈÕ
- * TODO javaÄÚ²¿ÀàÊµÏÖ´°Ìå³ÌĞò
+ * 2021å¹´4æœˆ24æ—¥
+ * TODO javaå†…éƒ¨ç±»å®ç°çª—ä½“ç¨‹åº
  */
 public class SwingTest {
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class SwingTest {
 		JFrame jframe = new JFrame("my JFrame");
 		JButton jButton = new JButton("my Button");
 		
-		//ÄäÃûÄÚ²¿Àà  °´ÏÂ°´Å¥´¥·¢Êä³ö
+		//åŒ¿åå†…éƒ¨ç±»  æŒ‰ä¸‹æŒ‰é’®è§¦å‘è¾“å‡º
 		jButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -25,7 +25,7 @@ public class SwingTest {
 			}
 		});
 		
-		//Ìí¼Ó°´Å¥µ½´°ÌåÀïÃæ
+		//æ·»åŠ æŒ‰é’®åˆ°çª—ä½“é‡Œé¢
 		jframe.add(jButton);
 		jframe.pack();
 		jframe.setVisible(true);

@@ -5,8 +5,8 @@ import javax.swing.JFrame;
 
 /**
  * @author lan
- * 2021Äê4ÔÂ24ÈÕ
- * TODO java lambdaÊµÏÖ´°Ìå³ÌĞò
+ * 2021å¹´4æœˆ24æ—¥
+ * TODO java lambdaå®ç°çª—ä½“ç¨‹åº
  */
 public class SwingTest2 {
 	public static void main(String[] args) {
@@ -14,10 +14,10 @@ public class SwingTest2 {
 		JFrame jframe = new JFrame("my JFrame");
 		JButton jButton = new JButton("my Button");
 		
-		//lambda  °´ÏÂ°´Å¥´¥·¢Êä³ö ¶àĞĞº¯Êı¿ÉÒÔ¼Ó {}
+		//lambda  æŒ‰ä¸‹æŒ‰é’®è§¦å‘è¾“å‡º å¤šè¡Œå‡½æ•°å¯ä»¥åŠ  {}
 		jButton.addActionListener(event -> System.out.print("Button Pressed"));
 		
-		//Ìí¼Ó°´Å¥µ½´°ÌåÀïÃæ
+		//æ·»åŠ æŒ‰é’®åˆ°çª—ä½“é‡Œé¢
 		jframe.add(jButton);
 		jframe.pack();
 		jframe.setVisible(true);
