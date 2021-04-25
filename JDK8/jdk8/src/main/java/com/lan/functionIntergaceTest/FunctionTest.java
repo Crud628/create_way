@@ -1,5 +1,7 @@
 package com.lan.functionIntergaceTest;
 
+
+
 //声明是为了方便在编写时提示以及编译时快捷
 @FunctionalInterface
 interface MyInterface{
