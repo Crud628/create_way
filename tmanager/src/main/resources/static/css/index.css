@@ -2,4 +2,12 @@
 body{
   background: url(../img/吉野山.jpg);
   background-size:cover;
+  background-attachment: fixed;
 }
+#main{
+	margin-top: 43px;
+}
+#inner{
+	height: 1000px;
+	width:100%;
+}	

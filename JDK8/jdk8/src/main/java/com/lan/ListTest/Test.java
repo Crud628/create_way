@@ -39,7 +39,8 @@ public class Test {
 		
 		System.out.println("-----------------");
 		
-		
-		
+		int s = Integer.MAX_VALUE;
+		int t = Integer.MIN_VALUE+10;
+		System.out.println((s & t) + ((s ^ t) >> 1));
 	}
 }
