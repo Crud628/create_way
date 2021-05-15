@@ -1,0 +1,10 @@
+@charset "UTF-8";
+body{
+  background: url(../img/吉野山.jpg);
+}
+#login{
+  background-color: white;
+  border-radius: 15px;
+  height: 317px;
+  width:647px;
+}
