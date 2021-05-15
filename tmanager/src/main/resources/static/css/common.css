@@ -1,1 +1,40 @@
 @charset "UTF-8";
+/* go to top */
+#goToTop{
+  display:block;
+  width:40px;
+  height:40px;
+  position:fixed;
+  bottom:60px;
+  right:10px;
+  text-decoration:none;
+  border:1px dotted white;
+  border-radius: 50%;
+  padding-top: 10px;
+  font-size:12px; 
+  background: rgba(0,0,0,0.3);
+}
+#goToTop span{
+  display:block;
+  color:#dddddd;
+}
+#goToTop span:hover{
+  color:#cccccc;
+}
+#md {
+	height:400px;	
+}
+/* footer */
+#footer{
+	width:100%;
+	background-color: #363636;
+	height: 40px;
+	z-index: 2;
+	position: absolute;  bottom: 0; /* 关键 */  
+}
+#footer p{
+	color: white;
+}
+#footer div{
+	margin-top: 10px;	
+}
