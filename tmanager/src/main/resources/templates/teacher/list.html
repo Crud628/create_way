@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班主任管理系统</title>
+     <link href="../../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet">
+</head>
+<body>
+<div width="100%" height="150" border="0" cellpadding="0" cellspacing="0">
+    <div width="100%" height="150"><img src="../../static/img/title.jpg" width="100%" height="150" /></div>
+</div>
+<table width="100%" height="800px" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td rowspan="9" valign="top"  style="width: 160px"  id="sidebar">
+      <div class="col-md-12 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="student.html">
+              <span class="glyphicon glyphicon-user"> 学生基本信息管理</span> </a></li>
+            <li>
+              <a href="integral.html">
+                <span class="glyphicon glyphicon-leaf"> 积分考核管理</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li>
+              <a href="daily.html">
+              <span class="glyphicon glyphicon-book"> 班主任日常事务管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="message.html">
+              <span class="glyphicon glyphicon-envelope"> 消息公布、留言板 </span>
+                <span class="badge">14</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="popedon.html">
+              <span class="glyphicon glyphicon-cog"> 用户权限设置管理</span></a></li>
+            <li>
+              <a href="log.html">
+              <span class="glyphicon glyphicon-tag"> 登入、登出管理</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </td>
+  </tr>
+  <tr >
+    <td colspan="2" valign="top" id="manTitle" >
+      <h3 class="text-center" >班 级 积 分 管 理</h3>
+    </td>
+  </tr>
+  <tr>
+    <td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" >
+       <table width="560" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="css1"><div align="center">序号</div></td>
+          <td class="css1"><div align="center">类型</div></td>
+          <td class="css1"><div align="center">教师编号</div></td>
+          <td class="css1"><div align="center">时间</div></td>
+          <td class="css1"><div align="center">地点</div></td>
+        </tr>
+        <tr>
+          <td class="css1"><div align="center"></div></td>
+          <td class="css1"><div align="center"></div></td>
+          <td class="css1"><div align="center"></div></td>
+          <td class="css1"><div align="center"></div></td>
+           <td class="css1"><div align="center"></div></td>
+        </tr> 
+           </table>
+            <div align="right">共<font color="blue" size="4"></font>页&nbsp; 当前第<font color="blue" size="4">
+       </font> 页 &nbsp;
+       <a href="list.jsp?page=1">[第一页]</a>&nbsp;<a href="list.jsp?page=<%=showPage-1%>">[上一页]</a>
+        [第一页]&nbsp;[上一页]
+         &nbsp;<a href="list.jsp?page=<%=showPage+1%>">[下一页]</a>&nbsp;<a href="list.jsp?page=<%=pageCount%>">[最后页]</a>
+         &nbsp;[下一页]&nbsp;[最后页]</div>
+        <p align="center"><a href="daily.jsp">继续添加</a></p>
+    </td>
+  </tr>
+</table>
+  <footer class="" id="footer">
+    <div class="container">
+    <p class="text-center">© 2021 
+      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      <a href="https://www.github.com/Crud628">班主任管理系统</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+

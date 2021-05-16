@@ -12,6 +12,7 @@
 /* 管理条目标题 */
 #manTitle{
   /*background: rgb(13, 96, 140);*/
+  height: 20px;
   border-bottom: 1px dotted gray;
 }
 /* 回到顶部 */
