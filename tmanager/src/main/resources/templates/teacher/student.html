@@ -52,11 +52,86 @@
   </tr>
   <tr >
     <td colspan="2" valign="top" id="manTitle" >
-      <h3 class="text-center" >班 级 积 分 管 理</h3>
+      <h3 class="text-center" >学 生 基 本 信 息 管 理</h3>
     </td>
   </tr>
   <tr>
-<td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" ></td>
+  <td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" >
+    <div>
+      <table>
+        <tr class="css1">
+          <td width="192">
+             学 号:
+              <input name="id" type="text" size="15" value="" readonly="readonly">               
+             </td>
+          <td width="218">
+             姓 名：
+              <input name="name" type="text" id="name" size="15" value="<%=hm.get("name")%>">               
+             </td>
+
+
+          <td width="164">
+             性别
+              <input type="text" name="sex" size="10" value="<%=m%>" />
+              <font color="red"> *(男/女)</font>  </td>
+        </tr>
+        <tr class="css1">
+          <td>
+             寝室号：
+              <input name="qinshiid" type="text" size="15" value="<%=hm.get("qinshiid")%>">               
+             </td>
+          <td>
+             联系方式：
+              <input name="longno" type="text" size="15" value="<%=hm.get("longno")%>">               
+             </td>
+          <td>
+             短号
+              <input name="shortno" type="text" size="15" value="<%=hm.get("shortno")%>">               
+             </td>
+        </tr>
+        <tr class="css1">
+          <td>
+             出生日期：
+              <input name="birthday" type="text" size="15" value="<%=hm.get("birthday")%>">               
+             </td>
+          <td>
+             父 亲：
+              <input name="fname" type="text" size="15" value="<%=hm.get("fname")%>">               
+             </td>
+          <td>
+             母亲：
+              <input name="mname" type="text" size="15" value="<%=hm.get("mname")%>">               
+             </td>
+        </tr>
+        <tr class="css1">
+          <td  colspan="3">
+             家庭地址：
+              <input name="address" type="text" value="<%=hm.get("address")%>" size="30" maxlength="30" />                
+             </td>
+        </tr>
+        <tr class="css1">
+          <td>
+           输入学号:                   </td>
+          <td> 
+            <input type="text" name="findContact" />
+             </td>
+          <td> 
+            <input type="submit" name="submit" value="查找" />                
+             </td>
+        </tr>
+              <tr align="center"class="css1">
+          <td colspan="3">
+            
+               
+              <input type="button" value=" 修  改 " name="button1" onClick="submit1()" />
+              &nbsp;
+              <input type="button" name="button2" value="取消修改" onClick="submit2()" />
+                 </td>
+        </tr>
+  </td>
+</tr>
+  </table>
+  <div>
   </tr>
 </table>
   <footer class="" id="footer">

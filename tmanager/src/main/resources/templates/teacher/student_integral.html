@@ -1,0 +1,163 @@
+ <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班主任管理系统</title>
+     <link href="../../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet">
+</head>
+<body>
+<div width="100%" height="150" border="0" cellpadding="0" cellspacing="0">
+    <div width="100%" height="150"><img src="../../static/img/title.jpg" width="100%" height="150" /></div>
+</div>
+<table width="100%" height="800px" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td rowspan="9" valign="top"  style="width: 160px"  id="sidebar">
+      <div class="col-md-12 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="student.html">
+              <span class="glyphicon glyphicon-user"> 学生基本信息管理</span> </a></li>
+            <li>
+              <a href="integral.html">
+                <span class="glyphicon glyphicon-leaf"> 积分考核管理</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li>
+              <a href="daily.html">
+              <span class="glyphicon glyphicon-book"> 班主任日常事务管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="message.html">
+              <span class="glyphicon glyphicon-envelope"> 消息公布、留言板 </span>
+                <span class="badge">14</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="popedon.html">
+              <span class="glyphicon glyphicon-cog"> 用户权限设置管理</span></a></li>
+            <li>
+              <a href="log.html">
+              <span class="glyphicon glyphicon-tag"> 登入、登出管理</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </td>
+  </tr>
+  <tr >
+    <td colspan="2" valign="top" id="manTitle" >
+      <h3 class="text-center" >班 级 积 分 管 理</h3>
+    </td>
+  </tr>
+  <tr>
+<td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" >
+	<table>
+		    <td width="557" rowspan="2" valign="top" bgcolor="#FFFFFF" ><!-- InstanceBeginEditable name="内容" -->
+      <form name="form2" method="post" action="">
+        <table width="556" height="304"  border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr class="css1">
+            <td width="98">姓　　　名：</td>
+            <td width="131"><input type="text" name="textfield"></td>
+            <td width="115">学　　　号：</td>
+            <td width="212"><input type="text" name="textfield2">            </td>
+          </tr>
+          <tr class="css1">
+            <td>原　　　因：</td>
+            <td>
+			  <select name="select">
+                <option>纪律</option>
+                <option>出勤</option>
+                <option>卫生</option>
+                <option>其它</option>
+              </select>
+			</td>
+            <td>增扣分值：</td>
+            <td><input type="text" name="textfield5"></td>
+          </tr>
+          <tr class="css1">
+            <td>记录人姓名：</td>
+            <td><input type="text" name="textfield7"></td>
+            <td>记录人编号：</td>
+            <td><input type="text" name="textfield8"></td>
+          </tr>
+          <tr class="css1">
+            <td>时　　　间：</td>
+            <td><input type="text" name="textfield6"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr class="css1">
+            <td colspan="4">描述信息： </td>
+          </tr>
+          <tr class="css1">
+            <td colspan="3"><div align="center">当日：
+              <input type="text" name="textfield3">
+            </div></td>
+            <td><div align="center">
+                <input type="submit" name="Submit3" value="明细">
+                　
+                <input type="submit" name="Submit52" value="排名">
+</div></td>
+          </tr>
+          <tr class="css1">
+            <td colspan="3"><div align="center">当周：
+              <input type="text" name="textfield32">
+            </div></td>
+            <td><div align="center">
+                <input type="submit" name="Submit4" value="明细">
+                　
+                <input type="submit" name="Submit5" value="排名">
+</div></td>
+          </tr>
+          <tr class="css1">
+            <td colspan="3"><div align="center">当月：
+                <input type="text" name="textfield4">
+
+              </div></td>
+            <td><div align="center">
+              <input type="submit" name="Submit32" value="明细">
+              　
+              <input type="submit" name="Submit53" value="排名">
+</div></td>
+          </tr>
+          <tr class="css1">
+            <td colspan="3"><div align="center">本学期：
+                <input type="text" name="textfield33">
+            </div></td>
+            <td><div align="center">
+              <input type="submit" name="Submit33" value="明细">
+              　
+              <input type="submit" name="Submit532" value="排名">
+            </div></td>
+          </tr>
+          <tr class="css1">
+            <td colspan="3"><div align="center">
+      <input type="submit" name="Submit6" value="查找">
+  （根据学号查找）</div></td>
+            <td><div align="center"></div></td>
+          </tr>
+        </table>
+      </form>
+    <!-- InstanceEndEditable --> </td>
+    <td width="9" rowspan="2" bgcolor="#FFFFFF" >&nbsp;</td>
+  </tr>
+	</table>
+</td>
+  </tr>
+</table>
+  <footer class="" id="footer">
+    <div class="container">
+    <p class="text-center">© 2021 
+      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      <a href="https://www.github.com/Crud628">班主任管理系统</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+
