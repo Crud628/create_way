@@ -1,5 +1,20 @@
 @charset "UTF-8";
-/* go to top */
+/* sidebar 侧边栏 */
+#sidebar{
+  background: rgb(245,245,245);
+}
+#sidebar div{
+  margin-top: 30px;
+}
+#sidebar div li{
+  margin-top: 40px;
+}
+/* 管理条目标题 */
+#manTitle{
+  /*background: rgb(13, 96, 140);*/
+  border-bottom: 1px dotted gray;
+}
+/* 回到顶部 */
 #goToTop{
   display:block;
   width:40px;

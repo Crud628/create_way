@@ -12,45 +12,51 @@
 <div width="100%" height="150" border="0" cellpadding="0" cellspacing="0">
     <div width="100%" height="150"><img src="../../static/img/title.jpg" width="100%" height="150" /></div>
 </div>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+<table width="100%" height="800px" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
   <tr>
-    <td height="323" valign="top"  >
-      <table width="100" height="323" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="222" height="302"><table width="222" height="323" cellpadding="0" cellspacing="0" bgcolor="#ECECEC">
-              <tr>
-                <td  ><div align="center" class="a01"><a href="student.jsp" class="css1">学生基本信息管理</a></div></td>
-              </tr>
-              <tr>
-                <td ><div align="center" class="a01"><a href="integral.jsp" class="a01">积分考核管理</a></div></td>
-              </tr>
-              <tr>
-                <td  ><div align="center" class="a01"><a href="daily.jsp" class="a01">班主任日常事务管理</a></div></td>
-              </tr>
-              <tr>
-                <td   ><div align="center" class="a01"><a href="message.jsp" class="a01">消息公布、留言板</a></div></td>
-              </tr>
-              <tr>
-                <td ><div align="center" class="a01"><a href="popedon.jsp" class="a01">用户权限设置管理</a></div></td>
-              </tr>
-              <tr>
-                <td  ><div align="center" class="a01"><a href="log.jsp" class="a01">登入、登出管理</a></div></td>
-              </tr>
-          </table></td>
-        </tr>
-    </table></td>
+    <td rowspan="9" valign="top"  style="width: 160px"  id="sidebar">
+      <div class="col-md-12 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="student.html">
+              <span class="glyphicon glyphicon-user"> 学生基本信息管理</span> </a></li>
+            <li>
+              <a href="integral.html">
+                <span class="glyphicon glyphicon-leaf"> 积分考核管理</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li>
+              <a href="daily.html">
+              <span class="glyphicon glyphicon-book"> 班主任日常事务管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="message.html">
+              <span class="glyphicon glyphicon-envelope"> 消息公布、留言板 </span>
+                <span class="badge">14</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="popedon.html">
+              <span class="glyphicon glyphicon-cog"> 用户权限设置管理</span></a></li>
+            <li>
+              <a href="log.html">
+              <span class="glyphicon glyphicon-tag"> 登入、登出管理</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </td>
   </tr>
-  
-  <tr  >
-    <td width="222" height="25" valign="top"  ><table width="222" border="0" cellpadding="0" cellspacing="0">
-    </table></td>
-    <td width="12" bgcolor="#FFFFFF"  >&nbsp;</td>
-    <td colspan="2" valign="top" bgcolor="#FFFFFF"  ><!-- InstanceBeginEditable name="栏目" -->
-      <div align="center" class="css1">班 级 积 分 管 理</div>
-    <!-- InstanceEndEditable --></td>
+  <tr >
+    <td colspan="2" valign="top" id="manTitle" >
+      <h3 class="text-center" >班 级 积 分 管 理</h3>
+    </td>
   </tr>
   <tr>
-    <td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" ><!-- InstanceBeginEditable name="内容" -->
+    <td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" >
       <form name="form2" method="post" action="">
         <table width="100%" height="345"  border="0" align="center" cellpadding="0" cellspacing="0">
           <tr class="css1">
@@ -94,7 +100,6 @@
             </div></td>
             <td width="28%"><div align="left">
                 <input type="submit" name="Submit3" value="明细">
-            　　
             <input type="submit" name="Submit8" value="排序">
             </div></td>
             <td width="20%" rowspan="4"><input type="submit" name="Submit7" value="修改"></td>
@@ -133,7 +138,8 @@
             <td colspan="2"><input type="submit" name="Submit5" value="修改个人考核"></td>
           </tr>
         </table>
-      </form></td>
+      </form>
+    </td>
   </tr>
 </table>
   <footer class="" id="footer">
