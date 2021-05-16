@@ -16,3 +16,5 @@ spring:
     database: MySQL
     show-sql: true
     open-in-view: true
+  thymeleaf:    cache: false
+  devtools:    restart:      enabled: true

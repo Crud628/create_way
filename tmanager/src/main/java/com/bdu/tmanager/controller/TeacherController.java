@@ -47,7 +47,12 @@ public class TeacherController {
     //根据id查询
     @RequestMapping(value="/{id}",method = RequestMethod.GET)
     public Result findById(@PathVariable(value="id") String id) throws CommonException {
-        Teacher teacher = teacherService.findById(id);
+    	Teacher teacher=null;
+    	try {
+    		teacher = teacherService.findById(id);
+        }catch(Exception e) {
+        	
+        }
         return new Result(ResultCode.SUCCESS,teacher);
     }
 

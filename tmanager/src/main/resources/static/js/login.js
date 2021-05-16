@@ -1,7 +1,7 @@
 /**
  *   登陆页面脚本
  */
- /* id */
+ /* id 身份选择 */
 function idChange(id){
 	if(id=='1'){
 		$('#stu').attr('class','active');
@@ -9,5 +9,32 @@ function idChange(id){
 	}else{
 		$('#stu').attr('class','');
 		$('#tea').attr('class','active');
+	}
+}
+
+function login(){
+	var isStu = $('#stu').attr('class') == 'active';
+	if(isStu){
+		$.post("/login/student",
+			{id:$('#username').val(),
+			password:$('#password').val()},
+			function(data){
+				if(data.success){
+					location.href="index";
+				}else{
+					alert(data.errMsg);
+				}
+			},'json');
+	}else{
+		$.post("/login/teacher",
+			{id:$('#username').val(),
+			password:$('#password').val()},
+			function(data){
+				if(data.success){
+					location.href="index";
+				}else{
+					alert(data.errMsg);
+				}
+			},'json');
 	}
 }
