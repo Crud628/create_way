@@ -57,29 +57,29 @@
   </tr>
   <tr>
     <td width="557" rowspan="4" valign="top" bgcolor="#FFFFFF" >
-       <table width="560" border="0" cellspacing="0" cellpadding="0">
+       <table width="80%" border="0" cellspacing="0" cellpadding="0" class="table table-striped">
         <tr>
-          <td class="css1"><div align="center">序号</div></td>
-          <td class="css1"><div align="center">类型</div></td>
-          <td class="css1"><div align="center">教师编号</div></td>
-          <td class="css1"><div align="center">时间</div></td>
-          <td class="css1"><div align="center">地点</div></td>
+          <td >序号</td>
+          <td >类型</td>
+          <td >教师编号</td>
+          <td >时间</td>
+          <td >地点</td>
         </tr>
         <tr>
-          <td class="css1"><div align="center"></div></td>
-          <td class="css1"><div align="center"></div></td>
-          <td class="css1"><div align="center"></div></td>
-          <td class="css1"><div align="center"></div></td>
-           <td class="css1"><div align="center"></div></td>
+          <td >a</td>
+          <td >b</td>
+          <td >c</td>
+          <td >d</td>
+           <td >e</td>
         </tr> 
            </table>
             <div align="right">共<font color="blue" size="4"></font>页&nbsp; 当前第<font color="blue" size="4">
        </font> 页 &nbsp;
        <a href="list.jsp?page=1">[第一页]</a>&nbsp;<a href="list.jsp?page=<%=showPage-1%>">[上一页]</a>
         [第一页]&nbsp;[上一页]
-         &nbsp;<a href="list.jsp?page=<%=showPage+1%>">[下一页]</a>&nbsp;<a href="list.jsp?page=<%=pageCount%>">[最后页]</a>
+         &nbsp;<a>[下一页]</a>&nbsp;<a>[最后页]</a>
          &nbsp;[下一页]&nbsp;[最后页]</div>
-        <p align="center"><a href="daily.jsp">继续添加</a></p>
+        <p align="center"><a href="daily.html" th:href="@{/daily/p}">继续添加</a></p>
     </td>
   </tr>
 </table>

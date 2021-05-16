@@ -60,6 +60,7 @@ public class LoginController extends BaseController{
 		if(s.getPassword().equals(student.getPassword())) {
 			data.put("success",true);
 			session.setAttribute("login", s.getId());
+			//存日志
 		}else {
 			data.put("success", false);
 			data.put("errMsg", "密码不正确");
@@ -87,6 +88,7 @@ public class LoginController extends BaseController{
 		if(t.getPassword().equals(teacher.getPassword())) {
 			data.put("success",true);
 			session.setAttribute("login", t.getId());
+			//存日志
 		}else {
 			data.put("success", false);
 			data.put("errMsg", "密码不正确");
@@ -104,6 +106,7 @@ public class LoginController extends BaseController{
 		String flag = String.valueOf(session.getAttribute("login"));
 		if(flag != null) {
 			session.removeAttribute("login");
+			//存日志
 			data.put("success", true);
 			return data;
 		}

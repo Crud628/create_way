@@ -20,7 +20,6 @@ public class PageController extends BaseController{
 	 */
 	@RequestMapping(value="index")
 	public String index() {
-		HttpSession session = request.getSession();
 		String flag = String.valueOf(session.getAttribute("login"));
 		if(flag != null) {
 			return "index";
@@ -28,12 +27,57 @@ public class PageController extends BaseController{
 		return "login";
 	}
 	
-	@RequestMapping(value="index2")
-	public String index2() {
-		HttpSession session = request.getSession();
+	@RequestMapping(value="list")
+	public String list() {
 		String flag = String.valueOf(session.getAttribute("login"));
 		if(flag != null) {
-			return "/manage/class_integral.html";
+			return "/manage/list";
+		}
+		return "login";
+	}
+
+	@RequestMapping(value="student/p")
+	public String student() {
+		String flag = String.valueOf(session.getAttribute("login"));
+		if(flag != null) {
+			return "/manage/student";
+		}
+		return "login";
+	}
+
+
+	@RequestMapping(value="daily/p")
+	public String daily() {
+		String flag = String.valueOf(session.getAttribute("login"));
+		if(flag != null) {
+			return "/manage/daily";
+		}
+		return "login";
+	}
+
+	@RequestMapping(value="message/p")
+	public String message() {
+		String flag = String.valueOf(session.getAttribute("login"));
+		if(flag != null) {
+			return "/manage/message";
+		}
+		return "login";
+	}
+
+	@RequestMapping(value="popedon/p")
+	public String popedon() {
+		String flag = String.valueOf(session.getAttribute("login"));
+		if(flag != null) {
+			return "/manage/popedon";
+		}
+		return "login";
+	}
+
+	@RequestMapping(value="log/p")
+	public String log() {
+		String flag = String.valueOf(session.getAttribute("login"));
+		if(flag != null) {
+			return "/manage/log";
 		}
 		return "login";
 	}
