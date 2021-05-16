@@ -1,0 +1,8 @@
+@charset "UTF-8";
+#sta-info{
+	margin-top: 50px;
+}
+#stu-info tr{
+	display: block;
+	margin:30px 10px;
+}
