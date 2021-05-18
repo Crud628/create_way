@@ -1,6 +1,5 @@
 package com.bdu.tmanager.controller.router;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +19,7 @@ public class PageController extends BaseController{
 	 */
 	@RequestMapping(value="index")
 	public String index() {
-		String flag = String.valueOf(session.getAttribute("login"));
+		Object flag = session.getAttribute("login");
 		if(flag != null) {
 			return "index";
 		}
