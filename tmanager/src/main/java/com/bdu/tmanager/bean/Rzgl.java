@@ -3,6 +3,8 @@ package com.bdu.tmanager.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -16,6 +18,7 @@ public class Rzgl implements Serializable {
 	 */
 	private static final long serialVersionUID = -8094895711658306518L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rno;
     private String rid;
     private String rname;
