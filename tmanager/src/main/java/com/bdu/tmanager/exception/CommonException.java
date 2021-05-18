@@ -13,7 +13,12 @@ import lombok.Getter;
 @Getter
 public class CommonException extends Exception {
 
-    private ResultCode resultCode;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5289060130108968521L;
+	
+	private ResultCode resultCode;
 
     public CommonException(ResultCode resultCode){
         this.resultCode = resultCode;
