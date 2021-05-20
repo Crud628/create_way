@@ -1,10 +1,9 @@
 package com.bdu.tmanager.controller.router;
 
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,59 +36,104 @@ public class PageController extends BaseController{
 		return "login";
 	}
 	
+	/**********************************主页面菜单路由***********************************/
+	/**
+	 * 班主任活动列表
+	 * @param page 页码
+	 * @return
+	 */
 	@RequestMapping(value="list")
 	public ModelAndView list(Integer page) {
 		ModelAndView mav = new ModelAndView();
-		//
-		List<Dailyworkinfo> list = dailyService.findAll();
-		mav.addObject("list",list);
+		Page<Dailyworkinfo> findAll = dailyService.findAll(page); 
+		mav.addObject("head",findAll.hasPrevious());
+		mav.addObject("next",findAll.hasNext());
+		mav.addObject("list",findAll.getContent());
+		mav.addObject("pages",findAll.getTotalPages());
 		mav.setViewName("manage/list.html");
 		return mav;
 	}
-
+	
+	/**
+	 * 学生信息设置
+	 * @return
+	 */
 	@RequestMapping(value="student/p")
 	public String student() {
-		String flag = String.valueOf(session.getAttribute("login"));
-		if(flag != null) {
-			return "/manage/student";
-		}
-		return "login";
+		return "/manage/student";
 	}
-
-
+	
+	/**
+	 * 积分管理选择
+	 * @return
+	 */
+	@RequestMapping(value="p")
+	public String integral() {
+		return "/manage/integral";
+	}
+	/**
+	 * 班主任日常事物管理
+	 * @return
+	 */
 	@RequestMapping(value="daily/p")
 	public String daily() {
-		String flag = String.valueOf(session.getAttribute("login"));
-		if(flag != null) {
-			return "/manage/daily";
-		}
-		return "login";
+		return "/manage/daily";
 	}
 
+	/**
+	 * 消息公布、留言板
+	 * @return
+	 */
 	@RequestMapping(value="message/p")
 	public String message() {
-		String flag = String.valueOf(session.getAttribute("login"));
-		if(flag != null) {
-			return "/manage/message";
-		}
-		return "login";
+		return "/manage/message";
 	}
 
+	/**
+	 * 用户权限
+	 * @return
+	 */
 	@RequestMapping(value="popedon/p")
 	public String popedon() {
-		String flag = String.valueOf(session.getAttribute("login"));
-		if(flag != null) {
-			return "/manage/popedon";
-		}
-		return "login";
+		return "/manage/popedon";
 	}
 
+	/**
+	 * 登入、登出管理
+	 * @return
+	 */
 	@RequestMapping(value="log/p")
 	public String log() {
-		String flag = String.valueOf(session.getAttribute("login"));
-		if(flag != null) {
-			return "/manage/log";
-		}
-		return "login";
+		return "/manage/log";
+	}
+	
+	
+	/******************************************班级积分路由配置***********************************/
+	@RequestMapping(value="class/list")
+	public String classIntegralAll() {
+		return  "manage/class_integral_list";
+	}
+	@RequestMapping(value="class/edit")
+	public String classIntegralEdit() {
+		return  "manage/class_integral_edit";
+	}
+	@RequestMapping(value="class/add")
+	public String classIntegralAdd() {
+		return  "manage/class_integral_add";
+	}
+	
+	/******************************************班主任路由配置***********************************/
+	/**
+	 * 班主任日常事物新增
+	 * @return
+	 */
+	@RequestMapping(value="t/make")
+	public String make(){
+		return "manage/make";
+	}
+	//学生积分管理
+	@RequestMapping(value="s/integary")
+	public String studentIntegary() {
+		return "/manage/student_integral.html";
 	}
 }
