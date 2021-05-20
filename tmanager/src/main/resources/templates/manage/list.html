@@ -81,18 +81,16 @@
       </div>
      <nav aria-label="Page navigation" style="text-align:center;">
         <ul class="pagination justify-content-center">
-          <li>
-            <a href="#" aria-label="Previous">
+          <li th:if="${head}">
+            <a th:href="@{/list(page=1)}" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
+          <th:block th:each="pageNum:${#numbers.sequence(0, pages - 1)}">
+            <li><a th:href="@{/list(page=${pageNum+1})}">[[${pageNum+1}]]</a></li>
+          </th:block>
+          <li th:if="${next}">
+            <a th:href="@{/list(page=${pages})}" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
