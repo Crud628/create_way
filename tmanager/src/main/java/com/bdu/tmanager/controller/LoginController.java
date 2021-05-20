@@ -37,11 +37,6 @@ public class LoginController extends BaseController{
 	private RzglService rService;
 	
 	/**
-	 * 已经登录的用户
-	 */
-	public static Map<String,Object> users = new HashMap<String,Object>();
-	
-	/**
 	 * 日志临时记录
 	 */
 	public static Map<String,Object> logs = new HashMap<String,Object>();
@@ -72,14 +67,9 @@ public class LoginController extends BaseController{
 			data.put("errMsg", "用户名不存在");
 			return data;
 		}
-		Object object = users.get(s.getId());
-		if(object != null) {
-			data.put("success", false);
-			data.put("errMsg", "该用户已经登陆");
-		}
 		if(s.getPassword().equals(student.getPassword())) {
-			users.put(s.getId(), s);
-			session.setAttribute("login", users);
+
+			session.setAttribute("login", "");
 			//存日志
 			Rzgl r = new Rzgl();
 			r.setRid(s.getId());
@@ -87,7 +77,6 @@ public class LoginController extends BaseController{
 			r.setIntime(new Date());
 			rService.add(r);
 			logs.put(r.getRno()+"", r);
-			
 			data.put("success",true);
 			data.put("user", s.getId());
 			data.put("log", r.getRno());
@@ -115,9 +104,17 @@ public class LoginController extends BaseController{
 			data.put("errMsg", "用户名不存在");
 			return data;
 		}
+		logs.forEach((key,value)->{
+			Rzgl l = (Rzgl)value; 
+			if(l.getRid().equals(teacher.getId())) {
+				data.put("sucess", false);
+			}
+		});
+		if(data.get("sucess") != null) {
+			data.put("errMsg", "该用户已经登录");
+			return data;
+		}
 		if(t.getPassword().equals(teacher.getPassword())) {
-			
-			session.setAttribute("login", t.getId());
 			//存日志
 			Rzgl r = new Rzgl();
 			r.setRid(t.getId());
@@ -125,6 +122,8 @@ public class LoginController extends BaseController{
 			r.setIntime(new Date());
 			rService.add(r);
 			logs.put(r.getRno()+"", r);
+			data.put("success",true);
+			data.put("logid",r.getRno());
 		}else {
 			data.put("success", false);
 			data.put("errMsg", "密码不正确");
@@ -137,15 +136,14 @@ public class LoginController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value="logout")
-	public Map<String,Object> logout(String id,String logId){
+	public Map<String,Object> logout(Integer logId){
 		Map<String,Object> data = new HashMap<String,Object>();
-		
-		String flag=null;
 		//更新登出记录
 		Rzgl r = new Rzgl();
-		r.setRno(Integer.parseInt(logId));
+		r.setRno(logId);
 		r.setOuttime(new Date());
 		rService.update(r);
+		logs.remove(r.getRno().toString());
 		data.put("success", true);
 		return data;
 	}

@@ -14,7 +14,7 @@ spring:
     # 3.JPA
   jpa:
     database: MySQL
-    show-sql: true
     open-in-view: true
+    show-sql: true
   thymeleaf:    cache: false
   devtools:    restart:      enabled: true

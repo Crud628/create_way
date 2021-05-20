@@ -1,11 +1,14 @@
 package com.bdu.tmanager.service;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.bdu.tmanager.bean.Dailyworkinfo;
 import com.bdu.tmanager.dao.DailyworkinfoDao;
-
-import java.util.List;
 
 @Service
 public class DailyworkinfoService {
@@ -50,5 +53,10 @@ public class DailyworkinfoService {
      */
     public List<Dailyworkinfo> findAll() {
         return dailyworkinfoDao.findAll();
+    }
+    
+    public Page<Dailyworkinfo> findAll(Integer page){
+    	Page page1 = dailyworkinfoDao.findPage(PageRequest.of(page-1,5));
+    	return page1;
     }
 }
