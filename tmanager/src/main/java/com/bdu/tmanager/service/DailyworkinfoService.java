@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.bdu.tmanager.bean.Dailyworkinfo;
+import com.bdu.tmanager.bean.PageResult;
 import com.bdu.tmanager.dao.DailyworkinfoDao;
 
 @Service
@@ -56,7 +58,7 @@ public class DailyworkinfoService {
     }
     
     public Page<Dailyworkinfo> findAll(Integer page){
-    	Page page1 = dailyworkinfoDao.findPage(PageRequest.of(page-1,5));
-    	return page1;
+    	Page<Dailyworkinfo> findAll = dailyworkinfoDao.findAll(PageRequest.of(page-1,5));
+    	return findAll;
     }
 }
