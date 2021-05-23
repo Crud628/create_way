@@ -20,8 +20,6 @@ public class LybService {
      */
     public void add(Lyb lyb) {
         //基本属性的设置
-        Integer id = 1;
-        lyb.setLno(id);
         lybDao.save(lyb);
     }
 

@@ -21,9 +21,6 @@ public class StudentService {
      * 保存
      */
     public void add(Student student) {
-        //基本属性的设置
-        String id = "";
-        student.setId(id);
         studentDao.save(student);
     }
 

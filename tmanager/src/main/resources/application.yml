@@ -8,13 +8,20 @@ spring:
     # 2.数据库连接池
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:9999/tm
-    username: root
-    password: 123456
+    url: jdbc:mysql://rm-bp16mv90z78c5hofkgo.mysql.rds.aliyuncs.com:3306/tm
+    username: ali_mysql8
+    password: 280617Fk
     # 3.JPA
   jpa:
     database: MySQL
     open-in-view: true
     show-sql: true
-  thymeleaf:    cache: false
-  devtools:    restart:      enabled: true
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

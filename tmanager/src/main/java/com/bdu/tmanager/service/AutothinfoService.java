@@ -18,9 +18,6 @@ public class AutothinfoService {
      * 保存
      */
     public void add(Autothinfo autothinfo) {
-        //基本属性的设置
-        String id = "";
-        autothinfo.setId(id);
         autothinfoDao.save(autothinfo);
     }
 

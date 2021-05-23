@@ -19,8 +19,6 @@ public class ClassteacherService {
      */
     public void add(Classteacher classteacher) {
         //基本属性的设置
-        String id = "";
-        classteacher.setClassid(id);
         classteacherDao.save(classteacher);
     }
 

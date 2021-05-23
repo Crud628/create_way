@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bdu.tmanager.bean.Rzgl;
 import com.bdu.tmanager.bean.Student;
@@ -67,9 +68,17 @@ public class LoginController extends BaseController{
 			data.put("errMsg", "用户名不存在");
 			return data;
 		}
+		logs.forEach((key,value)->{
+			Rzgl l = (Rzgl)value; 
+			if(l.getRid().equals(student.getId())) {
+				data.put("sucess", false);
+			}
+		});
+		if(data.get("sucess") != null) {
+			data.put("errMsg", "该用户已经登录");
+			return data;
+		}
 		if(s.getPassword().equals(student.getPassword())) {
-
-			session.setAttribute("login", "");
 			//存日志
 			Rzgl r = new Rzgl();
 			r.setRid(s.getId());
@@ -79,7 +88,7 @@ public class LoginController extends BaseController{
 			logs.put(r.getRno()+"", r);
 			data.put("success",true);
 			data.put("user", s.getId());
-			data.put("log", r.getRno());
+			data.put("logid", r.getRno());
 		}else {
 			data.put("success", false);
 			data.put("errMsg", "密码不正确");
@@ -135,17 +144,16 @@ public class LoginController extends BaseController{
 	 * 退出登录
 	 * @return
 	 */
-	@RequestMapping(value="logout")
-	public Map<String,Object> logout(Integer logId){
-		Map<String,Object> data = new HashMap<String,Object>();
+	@RequestMapping(value="/logout")
+	public ModelAndView logout(Integer logId){
+		ModelAndView mav = new ModelAndView();
 		//更新登出记录
-		Rzgl r = new Rzgl();
-		r.setRno(logId);
+		Rzgl r = (Rzgl)logs.get(logId.toString());
 		r.setOuttime(new Date());
 		rService.update(r);
 		logs.remove(r.getRno().toString());
-		data.put("success", true);
-		return data;
+		mav.setViewName("login.html");
+		return mav;
 	}
 	
 }

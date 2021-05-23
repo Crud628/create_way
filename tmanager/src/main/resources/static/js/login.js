@@ -13,6 +13,7 @@ function idChange(id){
 	}
 }
 
+/** 登录 */
 function login(){
 	var isStu = $('#stu').attr('class') == 'active';
 	if(isStu){
@@ -21,7 +22,8 @@ function login(){
 			password:$('#password').val()},
 			function(data){
 				if(data.success){
-					location.href="index/"+data.logid;
+					window.localStorage.storage.logid = data.logid;
+					location.href="index?id="+data.logid;
 				}else{
 					alert(data.errMsg);
 				}
@@ -32,11 +34,21 @@ function login(){
 			password:$('#password').val()},
 			function(data){
 				if(data.success){
-				alert(data.logid);
-					location.href="index/"+data.logid;
+					window.localStorage.logid = data.logid;
+					location.href="index?id="+data.logid;
 				}else{
 					alert(data.errMsg);
 				}
 			},'json');
 	}
 }
+
+
+function logout(){
+ 	var l = window.localStorage;
+ 	if(l.length==0){
+ 		alert('未登录');
+ 		location.href="/login";
+ 	}
+ 	$.get("/login/logout",{logId:l.logid},'json');
+ }

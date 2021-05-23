@@ -23,9 +23,6 @@ public class DailyworkinfoService {
      * 保存
      */
     public void add(Dailyworkinfo dailyworkinfo) {
-        //基本属性的设置
-        String id = "";
-        dailyworkinfo.setAutono(id);
         dailyworkinfoDao.save(dailyworkinfo);
     }
 

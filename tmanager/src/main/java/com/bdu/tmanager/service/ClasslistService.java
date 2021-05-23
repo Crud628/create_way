@@ -18,9 +18,6 @@ public class ClasslistService {
      * 保存
      */
     public void add(Classlist classlist) {
-        //基本属性的设置
-        String id = "";
-        classlist.setId(id);
         classlistDao.save(classlist);
     }
 

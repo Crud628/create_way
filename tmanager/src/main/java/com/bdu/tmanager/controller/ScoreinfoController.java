@@ -45,14 +45,14 @@ public class ScoreinfoController {
 
     //根据id删除
     @RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-    public Result delete(@PathVariable(value="id") String id) {
+    public Result delete(@PathVariable(value="id") Integer id) {
         scoreinfoService.deleteById(id);
         return new Result(ResultCode.SUCCESS);
     }
 
     //根据id查询
     @RequestMapping(value="/{id}",method = RequestMethod.GET)
-    public Result findById(@PathVariable(value="id") String id) throws CommonException {
+    public Result findById(@PathVariable(value="id") Integer id) throws CommonException {
         Scoreinfo scoreinfo = scoreinfoService.findById(id);
         return new Result(ResultCode.SUCCESS,scoreinfo);
     }

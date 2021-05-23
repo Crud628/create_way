@@ -11,9 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bdu.tmanager.bean.Dailyworkinfo;
 import com.bdu.tmanager.bean.PageResult;
+import com.bdu.tmanager.bean.Scoreinfo;
 import com.bdu.tmanager.controller.LoginController;
 import com.bdu.tmanager.controller.base.BaseController;
 import com.bdu.tmanager.service.DailyworkinfoService;
+import com.bdu.tmanager.service.ScoreinfoService;
 
 //解决跨域问题
 @CrossOrigin
@@ -22,6 +24,9 @@ public class PageController extends BaseController{
 	
 	@Autowired
 	DailyworkinfoService dailyService;
+	
+	@Autowired
+	ScoreinfoService socreService;
 	/**
 	 * 主页跳转，登录状态为空
 	 * 		则跳转到登录页
@@ -30,7 +35,7 @@ public class PageController extends BaseController{
 	@RequestMapping(value="index")
 	public String index(String id) {
 		boolean flag = LoginController.logs.get(id)==null;
-		if(!flag) {
+		if(!flag) {	
 			return "index";
 		}
 		return "login";
@@ -109,14 +114,29 @@ public class PageController extends BaseController{
 	
 	
 	/******************************************班级积分路由配置***********************************/
+	
 	@RequestMapping(value="class/list")
-	public String classIntegralAll() {
-		return  "manage/class_integral_list";
+	public ModelAndView classIntegralAll(Integer page) {
+		ModelAndView mav = new ModelAndView();
+		Page<Scoreinfo> findAll = socreService.findAll(page); 
+		mav.addObject("head",findAll.hasPrevious());
+		mav.addObject("next",findAll.hasNext());
+		mav.addObject("list",findAll.getContent());
+		mav.addObject("pages",findAll.getTotalPages());
+		mav.setViewName("manage/class_integral_list");
+		return mav;
 	}
+	
+	
 	@RequestMapping(value="class/edit")
-	public String classIntegralEdit() {
-		return  "manage/class_integral_edit";
+	public ModelAndView classIntegralEdit(Integer id) {
+		ModelAndView mav = new ModelAndView();
+		Scoreinfo score = socreService.findById(id);
+		mav.addObject("data",score);
+		mav.setViewName("manage/class_integral_edit");
+		return mav;
 	}
+	
 	@RequestMapping(value="class/add")
 	public String classIntegralAdd() {
 		return  "manage/class_integral_add";

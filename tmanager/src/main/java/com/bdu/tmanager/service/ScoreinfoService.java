@@ -3,6 +3,9 @@ package com.bdu.tmanager.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.bdu.tmanager.bean.Scoreinfo;
@@ -21,9 +24,6 @@ public class ScoreinfoService {
      * 保存
      */
     public void add(Scoreinfo scoreinfo) {
-        //基本属性的设置
-        String id = "";
-        scoreinfo.setId(id);
         scoreinfoDao.save(scoreinfo);
     }
 
@@ -37,14 +37,14 @@ public class ScoreinfoService {
     /**
      * 删除
      */
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
         scoreinfoDao.deleteById(id);
     }
 
     /**
      * 根据id查询
      */
-    public Scoreinfo findById(String id) {
+    public Scoreinfo findById(Integer id) {
         return scoreinfoDao.findById(id).get();
     }
 
@@ -54,4 +54,9 @@ public class ScoreinfoService {
     public List<Scoreinfo> findAll() {
         return scoreinfoDao.findAll();
     }
+
+	public Page<Scoreinfo> findAll(Integer page) {
+		Page<Scoreinfo> findAll = scoreinfoDao.findAll(PageRequest.of(page-1, 5));;
+		return findAll;
+	}
 }

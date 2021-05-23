@@ -5,8 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicUpdate;
+
 import java.io.Serializable;
 
+@DynamicUpdate(true)
 @Entity
 @Table(name = "student")
 public class Student implements Serializable {
@@ -17,19 +21,33 @@ public class Student implements Serializable {
 	private static final long serialVersionUID = -8201684736204639954L;
 	@Id
     private String id;
+	@Column(updatable=false)
     private String password;
+    @Column(updatable=false)
     private String classid;
+    @Column(updatable=false)
     private String name;
+    @Column(updatable=false)
     private String sex;
+    @Column(updatable=false)
     private java.util.Date birthday;
+    @Column(updatable=false)
     private String qinshiid;
+    @Column(updatable=false)
     private String longno;
+    @Column(updatable=false)
     private String shortno;
+    @Column(updatable=false)
     private String address;
+    @Column(updatable=false)
     private String idcard;
+    @Column(updatable=false)
     private String postno;
+    @Column(updatable=false)
     private String fname;
+    @Column(updatable=false)
     private String mname;
+    @Column(updatable=false)
     private String zzmm;
 
     public void setId(String value) {

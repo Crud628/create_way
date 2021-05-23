@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 
-public interface ScoreinfoDao extends JpaRepository<Scoreinfo,String> ,JpaSpecificationExecutor<Scoreinfo> {
+public interface ScoreinfoDao extends JpaRepository<Scoreinfo,Integer> ,JpaSpecificationExecutor<Scoreinfo> {
 }

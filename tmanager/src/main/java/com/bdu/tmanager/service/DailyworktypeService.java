@@ -19,8 +19,6 @@ public class DailyworktypeService {
      */
     public void add(Dailyworktype dailyworktype) {
         //基本属性的设置
-        String id = "";
-        dailyworktype.setId(id);
         dailyworktypeDao.save(dailyworktype);
     }
 

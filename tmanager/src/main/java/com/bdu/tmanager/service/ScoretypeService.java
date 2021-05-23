@@ -21,9 +21,6 @@ public class ScoretypeService {
      * 保存
      */
     public void add(Scoretype scoretype) {
-        //基本属性的设置
-        String id = "";
-        scoretype.setId(id);
         scoretypeDao.save(scoretype);
     }
 

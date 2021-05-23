@@ -18,35 +18,41 @@
   <tr>
     <td rowspan="9" valign="top"  style="width: 160px"  id="sidebar">
       <div class="col-md-12 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="student.html">
-              <span class="glyphicon glyphicon-user"> 学生基本信息管理</span> </a></li>
-            <li>
-              <a href="integral.html">
-                <span class="glyphicon glyphicon-leaf"> 积分考核管理</span>
-              </a>
-            </li>
+        <ul class="nav nav-sidebar">
+			<li class="active">
+				<a href="student.html" th:href="@{/student/p}">
+					<span class="glyphicon glyphicon-user"> 学生基本信息管理</span>
+				</a>
+			</li>
+	         <li>
+				<a href="integral.html" th:href="@{/p}">
+					<span class="glyphicon glyphicon-leaf"> 积分考核管理</span>
+				</a>
+	         </li>
+		</ul>
+		<ul class="nav nav-sidebar">
+			<li>
+				<a href="daily.html" th:href="@{/daily/p}">
+					<span class="glyphicon glyphicon-book"> 班主任日常事务管理</span>
+				</a>
+			</li>
+			<li>
+				<a href="message.html" th:href="@{/message/p}">
+					<span class="glyphicon glyphicon-envelope"> 消息公布、留言板 </span>
+					<span class="badge">14</span>
+				</a>
+			</li>
           </ul>
           <ul class="nav nav-sidebar">
             <li>
-              <a href="daily.html">
-              <span class="glyphicon glyphicon-book"> 班主任日常事务管理</span>
-              </a>
+            	<a href="popedon.html" th:href="@{/popedon/p}">
+              		<span class="glyphicon glyphicon-cog"> 用户权限设置管理</span>
+              	</a>
             </li>
             <li>
-              <a href="message.html">
-              <span class="glyphicon glyphicon-envelope"> 消息公布、留言板 </span>
-                <span class="badge">14</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="popedon.html">
-              <span class="glyphicon glyphicon-cog"> 用户权限设置管理</span></a></li>
-            <li>
-              <a href="log.html">
-              <span class="glyphicon glyphicon-tag"> 登入、登出管理</span>
-              </a>
+				<a href="log.html" th:href="@{/log/p}">
+					<span class="glyphicon glyphicon-tag"> 登入、登出管理</span>
+				</a>
             </li>
           </ul>
         </div>
@@ -63,7 +69,7 @@
     <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
         <td width="100%" colspan="4">
-          <table width="100%" class="table table-striped" width="557px" border="0" align="center">
+          <table class="table table-striped" width="557px" border="0" align="center">
             <tr>
               <td>时间:</td>
               <td>班级编号:</td>
@@ -71,79 +77,43 @@
               <td>记律:</td>
               <td>出勤:</td>
               <td>其他积分:</td>
-              <td>记录人姓名:</td>
               <td>记录人编号:</td>
               <td>操作</td>
             </tr>
-            <tr>
-              <td>jtime</td>
-              <td>id</td>
-              <td>wsjf</td>
-              <td>jljf</td>
-              <td>cqjf</td>
-              <td>otherjf</td>
-              <td>recorder</td>
-              <td>recorderid</td>
-              <td><a href="class_integral_edit.html?">编辑</a></td>
+            <tr th:each="item,status:${list}">
+              <td th:text="${item.jtime}">jtime</td>
+              <td th:text="${item.id}">id</td>
+              <td><th:block th:if="${item.scoretype} == '1' ">[[${item.score}]]</th:block></td>
+              <td><th:block th:if="${item.scoretype} == '2' ">[[${item.score}]]</th:block></td>
+              <td><th:block th:if="${item.scoretype} == '3' ">[[${item.score}]]</th:block></td>
+              <td><th:block th:if="${item.scoretype} == '4' ">[[${item.score}]]</th:block></td>
+              <td th:text="${item.recorderid}">recorderid</td>
+              <td><a href="class_integral_edit.html?" th:href="@{/class/edit(id=${item.autono})}">编辑</a></td>
             </tr>
-          </table>             
+          </table>
+	          <nav aria-label="Page navigation" style="text-align:center;">
+	        <ul class="pagination justify-content-center">
+	          <li th:if="${head}">
+	            <a th:href="@{/class/list(page=1)}" aria-label="Previous">
+	              <span aria-hidden="true">&laquo;</span>
+	            </a>
+	          </li>
+	          <th:block th:each="pageNum:${#numbers.sequence(0, pages - 1)}">
+	            <li><a th:href="@{/class/list(page=${pageNum+1})}">[[${pageNum+1}]]</a></li>
+	          </th:block>
+	          <li th:if="${next}">
+	            <a th:href="@{/class/list(page=${pages})}" aria-label="Next">
+	              <span aria-hidden="true">&raquo;</span>
+	            </a>
+	          </li>
+	        </ul>
+	      </nav>
         </td>
       </tr>
     <tr >
-      <td colspan="2">
-        <div align="left">当日：
-          <input type="text" name="textfield3">
-        </div>
-      </td>
-      <td width="34%">
-        <div align="left">
-          <input name="button" type="button" value="明细">
-          <input type="button" name="button" value="排序">
-        </div>
-      </td>
       <td width="34%" rowspan="4">
-        <input type="button" name="button" value="增加" onclick="location.href='class_integral_add.html'">
+        <input type="button" name="button" value="增加" onclick="location.href='/class/add'">
       </td>
-    </tr>
-    <tr>
-      <td height="28" colspan="2">
-        <div align="left">当周：
-          <input type="text" name="textfield">
-        </div>
-      </td>
-      <td>
-        <div align="left">
-          <input type="button" name="button" value="明细">
-          <input type="button" name="button" value="排序">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div align="left">当月：
-          <input type="text" name="textfield4">
-        </div>
-      </td>
-      <td>
-        <div align="left">
-          <input type="button" name="button" value="明细">　　
-          <input type="button" name="button" value="排序">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        本学期：
-        <input type="text" name="textfield2">
-      </td>
-        <td>
-          <input type="button" name="button" value="明细">
-          <input type="button" name="button" value="排序">
-        </td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type="button" name="button" value="查找">根据班级编号查找</td>
-      <td colspan="2"><input type="button" name="button" value="修改个人考核"></td>
     </tr>
   </table>
   </form>
@@ -158,5 +128,7 @@
     </div>
   </footer>
 </body>
+<script type="text/javascript" src="../static/js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 </html>
 

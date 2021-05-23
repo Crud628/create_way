@@ -19,8 +19,6 @@ public class RzglService {
      */
     public void add(Rzgl rzgl) {
         //基本属性的设置
-        Integer id = 1;
-        rzgl.setRno(id);
         rzglDao.save(rzgl);
     }
 
