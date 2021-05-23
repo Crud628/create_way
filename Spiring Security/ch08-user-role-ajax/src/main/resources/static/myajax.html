@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //juqery的入口函数
+            $("#btnLogin").click(function(){
+                var uname = $("#username").val();
+                var pwd = $("#password").val();
+                var txtcode = $("#txtcode").val();
+                $.ajax({
+                    url:"/login",
+                    type:"POST",
+                    data:{
+                        "username":uname,
+                        "password":pwd,
+                        "code":txtcode
+                    },
+                    dataType:"json",
+                    success:function(resp){
+                        alert("代码：" + resp.code+"  提示："+ resp.msg)
+                    }
+                })
+            })
+        })
+
+        function changeCode() {
+            //new Date目的是浏览器不使用缓存，每次获取新的内容
+            var url="/captcha/code?t="+new Date();
+            $("#imagecode").attr("src",url);
+        }
+    </script>
+</head>
+<body>
+    <p>前后端分离的ajax请求方式</p>
+    <div >
+        用户名：<input type="text" id="username" value=""> <br/>
+        密&nbsp;&nbsp;码：<input type="text" id="password" value=""> <br/>
+        验证码：<input type="text" id="txtcode" value=""> <br/>
+         <!--图像，显示验证码的值 -->
+         <img id="imagecode" src="/captcha/code" />
+        <a href="javascript:void(0)" onclick="changeCode()">重新获取</a>
+        <br/>
+        <br/>
+        <button id="btnLogin">使用ajax登录</button>
+    </div>
+</body>
+</html>
