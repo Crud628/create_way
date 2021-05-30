@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-jpa-review/01-jpa-review.iml" filepath="$PROJECT_DIR$/01-jpa-review/01-jpa-review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sd-jpa-quickstart/02-sd-jpa-quickstart.iml" filepath="$PROJECT_DIR$/02-sd-jpa-quickstart/02-sd-jpa-quickstart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-sd-jpa-manytable/03-sd-jpa-manytable.iml" filepath="$PROJECT_DIR$/03-sd-jpa-manytable/03-sd-jpa-manytable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-sd-redis/04-sd-redis.iml" filepath="$PROJECT_DIR$/04-sd-redis/04-sd-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-es-review/05-es-review.iml" filepath="$PROJECT_DIR$/05-es-review/05-es-review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-sd-es/06-sd-es.iml" filepath="$PROJECT_DIR$/06-sd-es/06-sd-es.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-sd-mongodb/07-sd-mongodb.iml" filepath="$PROJECT_DIR$/07-sd-mongodb/07-sd-mongodb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08-case/08-case.iml" filepath="$PROJECT_DIR$/08-case/08-case.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springdata.iml" filepath="$PROJECT_DIR$/springdata.iml" />
+    </modules>
+  </component>
+</project>
