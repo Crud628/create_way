@@ -1,6 +1,6 @@
 # 服务配置
 server:
-  port: 9001
+  port: 80
 # spring配置
 spring:
   # 1.应用配置
@@ -17,4 +17,10 @@ spring:
     database: MySQL
     show-sql: true
     open-in-view: true
+  # security
+  security:
+    user:
+      name: root
+      password: 123456
+    
     
