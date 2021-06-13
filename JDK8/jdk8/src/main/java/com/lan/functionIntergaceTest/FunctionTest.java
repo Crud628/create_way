@@ -41,6 +41,7 @@ public class FunctionTest {
 		});
 		
 		//lambda 实现2
+		@SuppressWarnings("unused")
 		MyInterface myInterface = () ->{
 			System.out.println("hello");
 		};
