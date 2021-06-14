@@ -1,0 +1,22 @@
+# 服务配置
+server:
+  port: 80
+spring:
+    # 2.数据库连接池
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp16mv90z78c5hofkgo.mysql.rds.aliyuncs.com:3306/tm
+    username: ali_mysql8
+    password: 280617Fk
+    # 3.JPA
+  jpa:
+    database: MYSQL
+    open-in-view: true
+    show-sql: true
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+  security:    user:      name: root
+      password: 123456
