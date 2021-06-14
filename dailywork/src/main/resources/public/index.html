@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title></title>
-<link href="sui/css/sm.min.css" rel="stylesheet">
-<link href="sui/css/sui-extend.min.css" rel="stylesheet">
-<link href="css/common/panel-left.css" rel="stylesheet">
-<link href="css/index/index.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+<meta name="author" content="阿里巴巴国际UED前端">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="sui/css/sm.min.css" rel="stylesheet">
+<link href="sui/css/sm-extend.min.css" rel="stylesheet">
+<link href="css/common/panel-left.css" rel="stylesheet">
+<link href="css/common/base.css" rel="stylesheet">
+<link href="css/index/index.css" rel="stylesheet">
 </head>
 <body>
 <!-- page 容器 -->
@@ -26,7 +31,7 @@
       <span class="icon icon-app"></span>
       <span class="tab-label">今日</span>
     </a>
-    <a class="tab-item external" href="#">
+    <a class="tab-item external" href="#" id="newTask">
       <span class="icon icon-edit"></span>
       <span class="tab-label">新建</span>
     </a>
@@ -37,109 +42,28 @@
   </nav>
 
   <!-- 这里是页面内容区 -->
-	<div  id = "main" class="content" style="margin-left: 1rem;">
-     <!-- 输入框 -->
-     <div style="margin-left: 1rem;">
-         <span>年</span>
-         <input type="text" id = "year">
-         <span>月</span>
-         <input type="text" id = "month">
-         <span>&nbsp;</span>
-         <input type="button" id = "btn" value="生&nbsp;成" onclick = "fun()">
-     </div>
-		<div id = "calendar">
- 
-             <div id = "date">
-                 <span id = date2></span>
-             </div>
-             <div>
-                 <table border = 0 id = "week" >
-                     <tr>
-                         <td>Sun</td>
-                         <td>Mon</td>
-                         <td>Tue</td>
-                         <td>Wed</td>
-                         <td>Thu</td>
-                         <td>Fri</td>
-                         <td>Sat</td>
-                     </tr>
-                 </table>
-             </div>
-             <div id = "month2">
-             <table id = "day" border ="1" cellpadding="0" cellspacing="0">
-                 <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                 </tr>
-             </table>
-             </div>
-         </div>
-     </div>
-
-	
+	<div class="content">
+		
+		<div id="date" data-toggle='date' ></div>
+	</div>
 </div>
 
 <!-- popup, panel 等放在这里 -->
-<div class="panel-overlay">
 
-</div>
 <!-- Left Panel with Reveal effect -->
-<div class="panel panel-left panel-reveal">
+<div id="panel-left" class="panel panel-left panel-reveal">
   <div class="content-block">
-    <p>Day Todo</p>
-    <p>最近代办</p>
-    <p>新建</p>
-    <p>回收站</p>
+    <p style="height: 2rem;width: 4rem;">Day Todo</p>
+    <p><span class="icon icon-clock"></span> <a>最近代办</a></p>
+    <p>预留</p>
+    <p>--------------</p>
+    <p>预留</p>
+    <p>预留</p>
+    <p>预留</p>
+    <p>预留</p>
+    <p>--------------</p>
+    <p>预留</p>
+    <p><span class="icon icon-remove"></span> 回收站</p>
     <!-- Click on link with "close-panel" class will close panel -->
     <p><a href="#" class="close-panel">关闭</a></p>
   </div>
@@ -150,5 +74,6 @@
 <script type="text/javascript" src="sui/js/sm-extend.min.js"></script>
 <script type="text/javascript" src="sui/js/sm-city-picker.min.js"></script>
 <script type="text/javascript" src="js/index/index.js"></script>
+<script type="text/javascript" src="js/common/base.js"></script>
 </body>
 </html>
