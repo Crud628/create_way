@@ -9,12 +9,9 @@ spring:
     # 2.数据库
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:9999/ddwork?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-#    username: root
-#    password: 123456
-    url: jdbc:mysql://120.77.209.88:3306/ddwork?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:9999/ddwork?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root
-    password: 280617Fk.
+    password: 123456
     # 3.JPA
   jpa:
     database: MYSQL
