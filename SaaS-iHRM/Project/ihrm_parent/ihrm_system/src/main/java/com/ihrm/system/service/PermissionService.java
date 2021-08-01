@@ -160,6 +160,7 @@ public class PermissionService {
              * 动态拼接查询条件
              * @return
              */
+            @Override
             public Predicate toPredicate(Root<Permission> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> list = new ArrayList<>();
                 //根据父id查询
