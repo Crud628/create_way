@@ -17,14 +17,26 @@ import java.util.Set;
  */
 public class fun1 {
 
+	/**
+	 * 时间复杂度O（n）遍历一次
+	 * 空间复杂度O（n）存储节点
+	 * 
+	 * @param head 当前列表
+	 * @return 是否有环
+	 */
     public boolean hasCycle(ListNode head) {
+    	// 存储访问过的节点
         Set<ListNode> seen = new HashSet<ListNode>();
+        // 遍历链表
         while (head != null) {
+        	// 有环则返回true
             if (!seen.add(head)) {
                 return true;
             }
+            // 遍历结束则退出 指向NULL
             head = head.next;
         }
+        // 没有环
         return false;
     }
 }
