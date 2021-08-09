@@ -1,4 +1,4 @@
-package Day04_Search;
+package Day04_Search_Easy;
 
 /**
  * 二分查找
