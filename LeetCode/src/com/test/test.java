@@ -1,7 +1,9 @@
 package com.test;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.regex.Pattern;
 
 
 /**
@@ -10,31 +12,29 @@ import java.util.Date;
  * 2021年7月4日
  * TODO
  */
-public class test {
-
+public class test{
 
 	public static void main(String[] args) {
-		int[] nums = {1391,5916};
-		int[][] nums2 = {{2,1},{3,4},{3,2}};
+		int[] nums = {1,2,3,4};
+		String string = "he bought 2 pencils, 3 erasers, and 1  pencil-sharpener.";
 		long start = new Date().getTime();
 		
-		System.out.println(new test().minStoneSum(nums, 3));
+		System.out.println(new test().countValidWords(string) );
 
 		System.out.println("执行时间：" + (new Date().getTime() - start));
 	}
-	
-    public int minStoneSum(int[] piles, int k) {
-    	int n = piles.length;
-    	int sum = Arrays.stream(piles).sum();
-    	Arrays.sort(piles);
-    	for (int i = n-1; ;i--,k--) {
-    		if (sum <= 1 || k == 0) return sum;
-    		i = (i + n) % n;
-    		int temp = piles[i] / 2;
-    		piles[i] -= temp;
-    		sum -= temp;
+
+    public int countValidWords(String sentence) {
+    	String[] split = sentence.split("\s");
+    	int count = 0;
+    	for (String string:split) {
+    		if (string.endsWith(",") || string.endsWith(".") || string.endsWith("!")) string = string.substring(0,string.length()-1);
+    		if ("/^[a-z]+-*[a-z]+$/g".matches(string) || "/^[a-z]+$/g".matches(string)) count++;
     	}
+    	return count;
     }
 	
+	
+
 
 }

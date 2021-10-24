@@ -24,7 +24,10 @@ public class test2{
 		int count = factors.length;
 		long sum = 0;
 		for (int i = 0;i < count;i++) {
-			
+			int j = (n - p - factors[i][0]) / 2;
+			int k = (m - q - factors[i][1]) / 2;
+			sum += nchoosek(n, p-2*j) * nchoosek(m, q-2*k);
+			sum %= mod;
 		}
 		
 		// 输出
@@ -76,8 +79,11 @@ public class test2{
 	 */
 	public static int nchoosek(int n, int k){
 	    k = (k > (n - k)) ? n - k : k;  // C(n, k) = C(n, n - k)
-	    if(k <= 1){  // C(n, 0) = 1, C(n, 1) = n
-	        return 1;
+	    if(k == 1){  // C(n, 0) = 1, C(n, 1) = n
+	        return n;
+	    }
+	    if (k == 0) {
+	    	return 1;
 	    }
 	    int divisor = n - k + 1;
 	    int dividend = 1;

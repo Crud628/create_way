@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mmall</groupId>
-	<artifactId>concurrency</artifactId>
+	<artifactId>hightConcurrency</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>concurrency</name>
+	<name>hightConcurrency</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
